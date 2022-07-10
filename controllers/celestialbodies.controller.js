@@ -5,4 +5,9 @@ const findAll = async (req, res) => {
     res.status(200).send({ celestialbody });
 };
 
-module.exports = { findAll };
+const find = async (req, res) => {
+    const celestialbody = await Celestialbody.find(req.params.id);
+    res.status(200).send({ celestialbody });
+};
+
+module.exports = { findAll, find };

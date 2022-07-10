@@ -15,6 +15,14 @@ class Celestialbody {
         console.table(rows);
         return rows;
     }
+
+    static async find(name) {
+        const { rows } = await db.query(
+            `SELECT * FROM public.cbodies WHERE LOWER(name) = '${name.toLowerCase()}'`,
+        );
+        console.table(rows);
+        return rows;
+    }
 }
 
 module.exports = Celestialbody;
