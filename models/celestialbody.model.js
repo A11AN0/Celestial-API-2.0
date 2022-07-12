@@ -23,6 +23,14 @@ class Celestialbody {
         console.table(rows);
         return rows;
     }
+
+    // async save() {
+    //     const celestialBody = { ...this };
+    //     const res = await db.query(
+    //         `INSERT INTO public.cbodies(name, radius_km, day_length_hr, year_length_days, sun_distance_milkm)VALUES('${celestialBody.name}', ${celestialBody.radius}, ${celestialBody.lengthOfDay}, ${celestialBody.lengthOfYear}, ${celestialBody.distanceFromSun})`,
+    //     );
+    //     return "celestial body created";
+    // }
 }
 
 module.exports = Celestialbody;
