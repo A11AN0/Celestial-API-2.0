@@ -24,13 +24,17 @@ class Celestialbody {
         return rows;
     }
 
-    // async save() {
-    //     const celestialBody = { ...this };
-    //     const res = await db.query(
-    //         `INSERT INTO public.cbodies(name, radius_km, day_length_hr, year_length_days, sun_distance_milkm)VALUES('${celestialBody.name}', ${celestialBody.radius}, ${celestialBody.lengthOfDay}, ${celestialBody.lengthOfYear}, ${celestialBody.distanceFromSun})`,
-    //     );
-    //     return "celestial body created";
-    // }
+    async save() {
+        const celestialBody = { ...this };
+        const { command } = await db.query(
+            `INSERT INTO public.cbodies(name, radius_km, day_length_hr, year_length_days, sun_distance_milkm)VALUES('${celestialBody.name}', ${celestialBody.radius}, ${celestialBody.lengthOfDay}, ${celestialBody.lengthOfYear}, ${celestialBody.distanceFromSun})`,
+        );
+        console.log(
+            `celestial body: ${celestialBody.name} created, ${command} successful`,
+        );
+        console.table(Celestialbody.findAll());
+        return `celestial body: ${celestialBody.name} created`;
+    }
 }
 
 module.exports = Celestialbody;

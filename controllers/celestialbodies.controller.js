@@ -10,4 +10,11 @@ const find = async (req, res) => {
     res.status(200).send({ celestialbody });
 };
 
-module.exports = { findAll, find };
+const create = async (req, res) => {
+    const entry = req.body;
+    const newCelestialBody = new Celestialbody(entry);
+    const message = await newCelestialBody.save();
+    res.status(201).send({ message, newCelestialBody });
+};
+
+module.exports = { findAll, find, create };
