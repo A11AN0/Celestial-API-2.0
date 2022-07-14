@@ -1,14 +1,14 @@
 //This is the main file for the API.
-// const bodyParser = require("body-parser");
 // const cors = require("cors");
-// app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cors());
 // app.use("/api/celestialBodies", router);
 // const db = require("./config/pool.config");
-
+// app.use(bodyParser.json());
+// const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 app.use(express.json());
+
 const router = require("./routes/celestialbodies.routes");
 const PORT = 3007;
 
